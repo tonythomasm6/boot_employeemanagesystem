@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Office</title>
+</head>
+<body>
+<form th:object="${office}" th:action="@{/office/}" method="post">
+
+    <table border="1">
+
+        <tr style="visibility: hidden">
+            <td><label>Office Id</label></td>
+            <td><input type="text" th:field="*{officeId}"></td>
+        </tr>
+
+
+        <tr>
+            <td><label>Office Location</label></td>
+            <td><input type="text" th:field="*{location}"></td>
+        </tr>
+        <tr>
+            <td><label>Office Area</label></td>
+            <td><input type="text" th:field="*{area}"></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Submit">
+            </td>
+        </tr>
+    </table>
+</form>
+
+</body>
+</html>

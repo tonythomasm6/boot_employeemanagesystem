@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form>
+<a th:href="${'/office/add'}">Add New Office</a>
+    <div th:if="${not #lists.isEmpty(allOffices)}">
+        <table border="1">
+            <tr>
+                <th>Office ID</th>
+                <th>Office Location</th>
+                <th>Office Area</th>
+                <th>Delete</th>
+                <th>Update</th>
+            </tr>
+            <tr th:each="office : ${allOffices}">
+                <td th:text="${office.officeId}"></td>
+                <td th:text="${office.location}"></td>
+                <td th:text="${office.area}"></td>
+                <td><a th:href="${'/office/delete/'+office.officeId}">Delete</a> </td>
+                <td><a th:href="${'/office/update/'+office.officeId}">Update</a> </td>
+            </tr>
+        </table>
+
+    </div>
+
+</form>
+</body>
+</html>
