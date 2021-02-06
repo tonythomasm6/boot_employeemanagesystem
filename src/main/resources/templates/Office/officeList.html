@@ -8,6 +8,19 @@
 
 <form>
 <a th:href="${'/office/add'}">Add New Office</a>
+    <br />
+    <a th:href="${'/'}" >Home</a>
+    <br />
+
+    <div th:if="${not #lists.isEmpty(errMsg)}">
+
+        <table>
+            <tr th:each="msg : ${errMsg}">
+                <td th:text="${msg}" style="color: red"></td>
+            </tr>
+        </table>
+
+    </div>
     <div th:if="${not #lists.isEmpty(allOffices)}">
         <table border="1">
             <tr>

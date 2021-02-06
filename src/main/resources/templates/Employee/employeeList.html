@@ -6,6 +6,9 @@
 </head>
 <body>
 <a th:href="${'/employee/add'}">Add new Employee</a>
+<br />
+<a th:href="${'/'}" >Home</a>
+<br />
 <div th:if="${not #lists.isEmpty(allEmployees)}">
     <table border="1">
         <tr>

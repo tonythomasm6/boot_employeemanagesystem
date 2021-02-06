@@ -1,8 +1,11 @@
 package com.example.boot_employeemanagesystem.model;
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Employee {

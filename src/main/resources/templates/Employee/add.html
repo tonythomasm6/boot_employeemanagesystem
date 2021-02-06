@@ -7,6 +7,17 @@
 <body>
 
     <form th:object="${employee}" th:action="@{'/employee'}" method="post">
+
+        <div th:if="${not #lists.isEmpty(errMsg)}">
+
+             <table>
+                <tr th:each="msg : ${errMsg}">
+                    <td th:text="${msg}" style="color: red"></td>
+                </tr>
+            </table>
+
+        </div>
+
         <table>
             <tr>
                 <td>
@@ -15,14 +26,21 @@
                 <td>
                     <input type="text" th:field="*{employeeId}">
                 </td>
+                <td th:if="${#fields.hasErrors('employeeId')}" th:errors="*{employeeId}">
+                        Enter valid employee Id
+                </td>
+
             </tr>
             <tr>
                 <td>
                     <label>First Name</label>
                 </td>
-                <Td>
+                <td>
                     <input type="text" th:field="*{firstName}">
-                </Td>
+                </td>
+                <td th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">
+                    Enter valid employee Name
+                </td>
             </tr>
             <tr>
                 <td>
@@ -38,7 +56,7 @@
                 </td>
                 <td>
                     <select th:field="*{office.officeId}">
-                        <option value="0">Unallocated</option>
+                        <!--<option value="0">Unallocated</option> -->
                         <option th:each="office: ${allOffices}" th:value="${office.officeId}"
                         th:text="${office.officeId}+'-'+${office.location}"></option>
                     </select>
